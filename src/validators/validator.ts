@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const menuItemZod = z.object({
+const menuItemZod = z.object({
   foodName: z.string().min(1, "Food name is required").trim(),
 
   description: z.string().optional().default(""),
@@ -14,6 +14,6 @@ export const menuItemZod = z.object({
   isAvailable: z.boolean().optional().default(true),
 
   image: z.string().optional().or(z.literal("")),
-
-
 });
+
+export { menuItemZod };
