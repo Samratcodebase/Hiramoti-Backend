@@ -1,15 +1,13 @@
-import "dotenv/config";
 import express from "express";
 import AdminRouter from "./routes/admin.routes.js";
-import type { Application } from "express";
-import ConnectDb from "./Db/db.js";
+import UserRouter from "./routes/user.routes.js";
 
-const app: Application = express();
-ConnectDb();
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/v1", AdminRouter);
+app.use("/api/v1", UserRouter);
 
 export default app;
+
