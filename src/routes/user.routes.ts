@@ -1,7 +1,7 @@
 import express, { Express } from "express";
-
+import UserController from "../controllers/user.controller.js";
 const RouterV1 = express.Router();
 
+RouterV1.get("/menu", UserController.getMenu);
 
-
-RouterV1.get("/menu", UserController.GetMenu)
+export default RouterV1;

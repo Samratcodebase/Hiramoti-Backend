@@ -1,5 +1,18 @@
-import app from "./src/app";
+import "dotenv/config";
+import app from "./src/app.js";
+import ConnectDb from "./src/Db/db.js";
 
-app.listen(3000, () => {
-  console.log(`server is Running at 3000`);
-});
+const startServer = async () => {
+  try {
+    await ConnectDb();
+
+    app.listen(3000, () => {
+      console.log("Server running on port 3000");
+    });
+  } catch (err) {
+    console.error("Failed to start server", err);
+    process.exit(1);
+  }
+};
+
+startServer();
