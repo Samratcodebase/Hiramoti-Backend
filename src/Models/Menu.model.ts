@@ -20,7 +20,7 @@ const menuSchema = new mongoose.Schema(
     },
 
     category: {
-      type: String, // e.g. "Starter", "Main Course"
+      type: String, 
       required: true,
     },
 
